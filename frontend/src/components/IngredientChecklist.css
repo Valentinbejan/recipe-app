@@ -1,0 +1,20 @@
+.ingredient-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Adjust the gap as needed */
+  }
+  
+  .ingredient {
+    padding: 10px 15px; /* Adjust the padding as needed */
+    border: 5px solid #d1e7dd; /* Basic border, you can change color and width as you like */
+    border-radius: 20px; /* Rounded corners */
+    cursor: pointer; /* Changes the mouse cursor on hover */
+    user-select: none; /* Prevents text selection */
+  }
+  
+  .ingredient.available {
+    background-color: #d1e7dd; /* This is the color that will highlight the selected ingredients */
+    color: #0f5132; /* This changes the text color, adjust it as you like */
+    border-color: #badbcc; /* Optional: change border color for selected ingredients */
+  }
+  

@@ -1,47 +1,109 @@
+// import { useEffect, useState } from "react";
+// import { RecipeSummary } from "../types";
+// import * as RecipeAPI from "../api";
+
+// interface Props {
+//   recipeId: string;
+//   onClose: () => void;
+// }
+
+// const RecipeModal = ({ recipeId, onClose }: Props) => {
+//   const [recipeSummary, setRecipeSummary] = useState<RecipeSummary>();
+
+//   useEffect(() => {
+//     const fetchRecipeSummary = async () => {
+//       try {
+//         const summaryRecipe = await RecipeAPI.getRecipeSummary(recipeId);
+//         setRecipeSummary(summaryRecipe);
+//       } catch (error) {
+//         console.log(error);
+//       }
+//     };
+
+//     fetchRecipeSummary();
+//   }, [recipeId]);
+
+//   if (!recipeSummary) {
+//     return <></>;
+//   }
+
+//   return (
+//     <>
+//       <div className="overlay"></div>
+//       <div className="modal">
+//         <div className="modal-content">
+//           <div className="modal-header">
+//             <h2>{recipeSummary.title}</h2>
+//             <span className="close-btn" onClick={onClose}>
+//               &times;
+//             </span>
+//           </div>
+//           <p dangerouslySetInnerHTML={{ __html: recipeSummary.summary }}></p>
+//         </div>
+//       </div>
+//     </>
+//   );
+// };
+
+// export default RecipeModal;
+// File: RecipeModal.tsx
 import { useEffect, useState } from "react";
 import { RecipeSummary } from "../types";
 import * as RecipeAPI from "../api";
 
 interface Props {
-  recipeId: string;
-  onClose: () => void;
-}
+       recipeId: string;
+       onClose: () => void;
+     }
 
-const RecipeModal = ({ recipeId, onClose }: Props) => {
-  const [recipeSummary, setRecipeSummary] = useState<RecipeSummary>();
 
-  useEffect(() => {
-    const fetchRecipeSummary = async () => {
-      try {
-        const summaryRecipe = await RecipeAPI.getRecipeSummary(recipeId);
-        setRecipeSummary(summaryRecipe);
-      } catch (error) {
-        console.log(error);
-      }
-    };
+const RecipeModal = ({ recipeId,onClose }: Props) => {
+  
+    const [recipeSummary, setRecipeSummary] = useState<RecipeSummary>();
+    
+    useEffect(() => {
+             const fetchRecipeSummary = async () => {
+           try {
+                 const summaryRecipe = await RecipeAPI.getRecipeSummary(recipeId);
+                 setRecipeSummary(summaryRecipe);
+               } catch (error) {
+                 console.log(error);
+               }
+             };
+        
+             fetchRecipeSummary();
+           }, [recipeId]);
 
-    fetchRecipeSummary();
-  }, [recipeId]);
 
-  if (!recipeSummary) {
-    return <></>;
-  }
+          const convertHtmlToText = (html: string) => {
+            const tempDivElement = document.createElement("div");
+            tempDivElement.innerHTML = html;
+            return tempDivElement.textContent || tempDivElement.innerText || "";
+          };
+
+          if (!recipeSummary) {
+            return <></>;
+          }
 
   return (
-    <>
-      <div className="overlay"></div>
+    <div className="overlay">
       <div className="modal">
         <div className="modal-content">
           <div className="modal-header">
-            <h2>{recipeSummary.title}</h2>
+          <h2>{recipeSummary.title}</h2>
+          <h2>{recipeSummary.id}</h2>
             <span className="close-btn" onClick={onClose}>
-              &times;
+                &times;
+
             </span>
+           
+             
           </div>
-          <p dangerouslySetInnerHTML={{ __html: recipeSummary.summary }}></p>
+          {/* <p dangerouslySetInnerHTML={{ __html: recipeSummary.summary }} /> */}
+          <p>{convertHtmlToText(recipeSummary.summary)}</p>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,0 +1,72 @@
+/* Stiluri generale pentru pagina de admin */
+.admin-page {
+    font-family: Arial, sans-serif;
+    background-color: #e4cc51;
+    margin: 20px;
+    padding: 20px;
+}
+
+/* Stilizează titlul paginii de admin */
+.admin-title {
+    color: #333;
+    text-align: center;
+}
+
+/* Stiluri pentru formularul de admin și elementele acestuia */
+.admin-form {
+    background-color: #d3c543;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-name-label, .ingredient-label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.recipe-name-input, 
+.ingredient-input {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #fff126;
+    border-radius: 4px;
+}
+
+/* Stiluri pentru butoanele din pagina de admin */
+.remove-ingredient-button, .add-ingredient-button {
+    background-color: #008cba;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.remove-ingredient-button:hover, .add-ingredient-button:hover {
+    background-color: #007ba7;
+}
+
+/* Stilizare specifică pentru butonul de adăugare ingredient */
+.add-ingredient-button {
+    background-color: #4CAF50; /* Verde */
+}
+
+/* Stiluri pentru a aranja etichetele și butoanele de pe aceeași linie în cadrul unui element de ingredient */
+.ingredient-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ingredient-item label, .ingredient-item button {
+    flex-grow: 1;
+}
+
+.ingredient-item button {
+    margin-left: 10px;
+    flex-grow: 0;
+    width: auto; /* Ajustează-l să nu ocupe tot spațiul */
+}

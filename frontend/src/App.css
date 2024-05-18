@@ -1,12 +1,12 @@
 #root {
   font-family: Arial, Helvetica, sans-serif;
 }
-
+/* 
 body {
   padding-top: 5em;
   padding-bottom: 5em;
   height: 100vh;
-  background-color: rgb(237, 250, 250);
+  background-color: rgb(135, 228, 228);
 }
 
 @media (min-width: 768px) {
@@ -107,6 +107,19 @@ button {
   background-color: black;
   opacity: 80%;
   padding: 0.5em 1.5em 0.5em 1.5em;
+} */
+body {
+  padding-top: 5em;
+  padding-bottom: 5em;
+  height: 100vh;
+  background-color: rgb(238, 233, 130);
+}
+
+@media (min-width: 768px) {
+  body {
+    margin-left: 5em;
+    margin-right: 5em;
+  }
 }
 
 .overlay {
@@ -126,6 +139,11 @@ button {
   transform: translate(-50%, -50%);
   z-index: 2;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tab-active {
+  border-bottom: 4px rgb(46, 4, 214) solid;
+  padding-bottom: 0.5em;
 }
 
 .modal-header {
@@ -152,4 +170,97 @@ button {
   display: flex;
   align-items: center;
   gap: 0.5em;
+} 
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
 }
+
+.header img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  object-position: center;
+  opacity: 80%;
+  border-radius: 1em;
+}
+
+.title {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(0, 0, 0);
+  font-size: 10em;
+  text-align: center;
+  /* background-color: black; */
+  opacity: 80%;
+  padding: 0.5em 1.5em 0.5em 1.5em;
+} 
+
+form {
+  display: flex;
+  background-color: white;
+  align-items: center;
+  border-radius: 60px;
+}
+
+input {
+  padding: 0.5em;
+  font-size: 2em;
+  flex: 1;
+  border: none;
+  border-radius: 60px;
+  
+}
+
+input:focus {
+  outline: none;
+  border-radius: 60px;
+}
+
+button {
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 60px;
+}
+
+.recipe-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: white;
+  padding: 1em;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  cursor: pointer;
+  gap: 1.5em;
+}
+
+.recipe-card h3 {
+  font-size: 1.5em;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 2em;
+}
+
+.view-more-button {
+  font-size: 1.5em;
+  padding: 1em;
+  font-weight: bold;
+  margin: auto;
+  width: 100%; /* Adăugat pentru a face butonul mai lat */
+  border-radius: 60px; /* Adăugat pentru a rotunji colțurile */
+}
+
